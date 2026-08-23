@@ -6,7 +6,7 @@ class Gafanhoto:
         self.altura = 0
 
     def aniversario(self):
-        self.idade =+ 1
+        self.idade += 1
 
     def mensagem(self):
         return f"{self.nome} é um Gafanhoto(a) e tem {self.idade} anos de idade, está pesando {self.peso}kg e tem {self.altura}m de altura"
