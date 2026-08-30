@@ -1,0 +1,17 @@
+from classes import Professor, Aluno, Funcionario, Pessoa
+
+print("\n")
+a1 = Aluno("Matheus", 31, "Informatica", "T01")
+a1.fazer_aniversaio()
+a1.fazer_matricula()
+a1.estudar()
+print("\n")
+p1 = Professor("Paulo", 41, "Ed.Fisica", "Mestrado")
+p1.fazer_aniversaio()
+p1.dar_aula()
+p1.estudar()
+print("\n")
+f1 = Funcionario("Lidia", 55, "Secretaria", "Secretaria")
+f1.fazer_aniversaio()
+f1.bater_ponto()
+f1.estudar()
