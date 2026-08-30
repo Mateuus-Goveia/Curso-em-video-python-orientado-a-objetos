@@ -8,31 +8,30 @@ considerando tambem se o usuario chegou ao fim da leitura.
 from rich import print
 from time import sleep
 
-
 class Livro:
 
-    def __init__(self, paginas: int, nome="Livro"):
-        self.nome = nome
+    def __init__(self, paginas, nome):
         self.total_paginas = paginas
+        self.nome = nome
         self.pagina_atual = 1
 
-        print(f":open_book: [blue]Voce acabou de abrir o livro [red]{self.nome}[/] que tem {self.total_paginas} paginas no total. Voce agora esta na pagina 1")
+        print(f":open_book: [blue]Voce acabou de abrir o livro '[red]{self.nome}[/]' que tem [green]{self.total_paginas} paginas[/] no total. Voce agora está na [yellow]página {self.pagina_atual}")
 
-    def avancar_paginas(self, paginas):
+    def avancar_paginas(self, quantidade):
         cont_paginas = 0
-        for _ in range(paginas):
-            if not self.fim_do_livro():
+        for _ in range(quantidade):
+            if not self.verificar_fim_do_livro():            
                 self.pagina_atual += 1
                 cont_paginas += 1
-                print(f"Pag{self.pagina_atual} :right_arrow:  ", end="")
+                print(f":backhand_index_pointing_right: Pag{self.pagina_atual} ", end="")
                 sleep(0.4)
-        print(f"Voce avançou {cont_paginas} paginas e agora esta na pagina {self.pagina_atual}")          
+        print(f"[blue]Voce acabou de passar {cont_paginas} paginas e agora está na [/][yellow]pagina {self.pagina_atual}[/]")
+        if self.verificar_fim_do_livro():
+            print(f"Parabens !! voce chegou ao final do livro '[red]{self.nome}[/]'")
 
+    def verificar_fim_do_livro(self):
+        return True if self.total_paginas == self.pagina_atual else False
 
-    def fim_do_livro(self):
-        return True if self.pagina_atual == self.total_paginas else False
-
-l1 = Livro(20, "Arroz com mel")
-l1.avancar_paginas(5)
-l1.avancar_paginas(10)
-l1.avancar_paginas(100)
+    
+l1 = Livro(10, "Livro")
+l1.avancar_paginas(50)
